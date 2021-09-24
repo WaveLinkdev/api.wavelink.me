@@ -9,11 +9,16 @@ var API = /** @class */ (function () {
     function API(config) {
         this.app = express_1.default();
         this.config = config;
+        this.app.use(function (req, res, next) {
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+            next();
+        });
         this.generateEndpoints();
     }
     API.prototype.generateEndpoints = function () {
-        this.app.get("/", function (req, res) {
-            res.send("Hello World");
+        this.app.get("/status", function (req, res) {
+            res.send("Online");
         });
     };
     API.prototype.start = function () {
