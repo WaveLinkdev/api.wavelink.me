@@ -11,12 +11,8 @@ export class API {
     }
 
     private generateEndpoints() {
-        this.app.get("/", (req, res) => {
-            res.send("Hello World");
-        });
-
-        this.app.get("/test", (req, res) => {
-            res.send("Hello again!");
+        this.app.get("/status", (req, res) => {
+            res.send("Online");
         })
     }
 
