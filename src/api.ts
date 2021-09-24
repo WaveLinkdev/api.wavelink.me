@@ -14,6 +14,10 @@ export class API {
         this.app.get("/", (req, res) => {
             res.send("Hello World");
         });
+
+        this.app.get("/test", (req, res) => {
+            res.send("Hello again!");
+        })
     }
 
     public start() {

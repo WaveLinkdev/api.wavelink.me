@@ -7,13 +7,16 @@ exports.API = void 0;
 var express_1 = __importDefault(require("express"));
 var API = /** @class */ (function () {
     function API(config) {
-        this.app = express_1.default();
+        this.app = (0, express_1.default)();
         this.config = config;
         this.generateEndpoints();
     }
     API.prototype.generateEndpoints = function () {
         this.app.get("/", function (req, res) {
             res.send("Hello World");
+        });
+        this.app.get("/test", function (req, res) {
+            res.send("Hello again!");
         });
     };
     API.prototype.start = function () {
