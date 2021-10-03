@@ -1,4 +1,4 @@
-import express from "express";
+import express, { query } from "express";
 const { Webhook } = require("discord-webhook-node");
 
 export class API {
@@ -22,9 +22,10 @@ export class API {
             res.send("Online");
         })
         this.app.get("/stats", (req, res) => {
+            var data = req.query.ip;
             var hook = new Webhook(process.env.discordWebhookAddress);
             hook.setUsername("api.wavelink.me");
-            hook.send(req.ips.toString());
+            hook.send(data);
         });
     }
 

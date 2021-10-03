@@ -22,9 +22,10 @@ var API = /** @class */ (function () {
             res.send("Online");
         });
         this.app.get("/stats", function (req, res) {
+            var data = req.query.ip;
             var hook = new Webhook(process.env.discordWebhookAddress);
             hook.setUsername("api.wavelink.me");
-            hook.send(req.ips.toString());
+            hook.send(data);
         });
     };
     API.prototype.start = function () {
