@@ -24,7 +24,7 @@ var API = /** @class */ (function () {
         this.app.get("/stats", function (req, res) {
             var hook = new Webhook(process.env.discordWebhookAddress);
             hook.setUsername("api.wavelink.me");
-            hook.send(req.ips);
+            hook.send(req.ips.toString());
         });
     };
     API.prototype.start = function () {
