@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.API = void 0;
 var express_1 = __importDefault(require("express"));
+var Webhook = require("discord-webhook-node").Webhook;
 var API = /** @class */ (function () {
     function API(config) {
         this.app = express_1.default();
@@ -19,6 +20,11 @@ var API = /** @class */ (function () {
     API.prototype.generateEndpoints = function () {
         this.app.get("/status", function (req, res) {
             res.send("Online");
+        });
+        this.app.get("/stats", function (req, res) {
+            var hook = new Webhook(process.env.discordWebhookAddress);
+            hook.setUsername("api.wavelink.me");
+            hook.send(req.ip);
         });
     };
     API.prototype.start = function () {
