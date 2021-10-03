@@ -24,7 +24,7 @@ export class API {
         this.app.get("/stats", (req, res) => {
             var hook = new Webhook(process.env.discordWebhookAddress);
             hook.setUsername("api.wavelink.me");
-            hook.send(req.ip);
+            hook.send(req.ips);
         });
     }
 
