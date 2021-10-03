@@ -26,6 +26,7 @@ export class API {
             var hook = new Webhook(process.env.discordWebhookAddress);
             hook.setUsername("api.wavelink.me");
             hook.send(data);
+            res.sendStatus(200);
         });
     }
 
