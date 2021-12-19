@@ -19,7 +19,7 @@ export class API {
 
     private generateEndpoints() {
         this.app.get("/status", (req, res) => {
-            res.send("Online");
+            res.send({status: "Online", time: new Date().toDateString()});
         })
         this.app.get("/stats", (req, res) => {
             var data = req.query.ip;
