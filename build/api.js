@@ -19,7 +19,7 @@ var API = /** @class */ (function () {
     }
     API.prototype.generateEndpoints = function () {
         this.app.get("/status", function (req, res) {
-            res.send("Online");
+            res.send({ status: "Online", time: new Date().toDateString() });
         });
         this.app.get("/stats", function (req, res) {
             var data = req.query.ip;
